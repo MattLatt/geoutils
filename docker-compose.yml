@@ -9,7 +9,7 @@ services:
     volumes:
       - /home/:/home:shared
       - /opt:/opt
-      - /GisData:/GisData:rw
+      - ${GIS_DATA}:${GIS_DATA}:rw
     entrypoint: "tail -f /dev/null"
   pdal:
     image: "pdal/pdal:${PDAL_VER}"
@@ -17,7 +17,7 @@ services:
     volumes:
       - /home/:/home:shared
       - /opt:/opt
-      - /GisData:/GisData:rw
+      - ${GIS_DATA}:${GIS_DATA}:rw
     links:
       - gdal
     entrypoint: "tail -f /dev/null"
@@ -27,7 +27,7 @@ services:
     volumes:
       - /home/:/home:shared
       - /opt:/opt
-      - /GisData:/GisData:rw
+      - ${GIS_DATA}:${GIS_DATA}:rw
     links:
       - gdal
     entrypoint: "tail -f /dev/null"

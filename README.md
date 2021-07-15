@@ -10,6 +10,8 @@ cat .env
 ```
 you can downgrade or upgrade the version by modifying this .env file.
 
+You can also setup a GIS_DATA var pointing to a folder that will be mounted in the docker images as volume (RW)
+
 ## Usage
 
 Go to the geoutils folder and simply run the following command:
