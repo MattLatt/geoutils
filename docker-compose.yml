@@ -1,0 +1,36 @@
+---
+# vim:set ts=2 sw=2 ai et bg=dark:
+version: "3"
+
+services:
+  gdal:
+    image: "osgeo/gdal:ubuntu-full-${GDAL_VER}"
+    privileged: true
+    volumes:
+      - /home/:/home:shared
+      - /opt:/opt
+      - /GisData:/GisData:rw
+    entrypoint: "tail -f /dev/null"
+  pdal:
+    image: "pdal/pdal:${PDAL_VER}"
+    privileged: true
+    volumes:
+      - /home/:/home:shared
+      - /opt:/opt
+      - /GisData:/GisData:rw
+    links:
+      - gdal
+    entrypoint: "tail -f /dev/null"
+  proj4:
+    image: "osgeo/proj:${PROJ_VER}"
+    privileged: true
+    volumes:
+      - /home/:/home:shared
+      - /opt:/opt
+      - /GisData:/GisData:rw
+    links:
+      - gdal
+    entrypoint: "tail -f /dev/null"
+
+...
+
